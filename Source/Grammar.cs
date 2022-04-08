@@ -44,9 +44,40 @@ namespace Tracery
 			return grammar;
 		}
 
-		public static Grammar LoadFromJSON(TextAsset jsonFile)
-		{
+		public static Grammar LoadFromJSON(TextAsset jsonFile) {
 			return LoadFromJSON(jsonFile.text);
+		}
+
+		public static Grammar LoadFromCCC(string cccString) {
+
+			Grammar grammar = new Grammar();
+			string rule = "";
+			string[] options = new string[]();
+
+			// filter comments
+			using (StringReader reader = new StringReader(cccString)) {
+				string line;
+				while ((line = reader.ReadLine()) != null) {
+					if (!line.StartsWith("\\") && line.Length > 0) {
+						if (line.StartsWith("[") && line.Length > 0) {
+							if (rule.Length > 0) {
+								grammar.PushRules(rule, options);
+							}
+							rule = line.Substring(1, line.Length - 2);
+							options = new string[]();
+						} else {
+							options.Append(line);
+						}
+					}
+				}
+			}
+
+			return grammar;
+		}
+
+		public static Grammar LoadFromCCC(TextAsset cccFile)
+		{
+			return LoadFromCCC(cccFile.text);
 		}
 
 		public void AddModifiers(IDictionary<string,Func<string,string>> modifiers)
