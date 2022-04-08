@@ -1,12 +1,12 @@
-# TracerySharp
+# EphemeraldUnity
 
-A (heavily WIP) C# port of [Tracery](http://tracery.io/), a text generation library/language/tool originally designed by [Kate Compton](http://www.galaxykate.com/). Primarily intended to be used within [Unity](https://unity3d.com/) games.
+A C# port of [Tracery](http://tracery.io/), a text generation library/language/tool originally designed by [Kate Compton](http://www.galaxykate.com/). Primarily intended to be used within the [Unity](https://unity3d.com/) engine.
+
+This project adds the [ephemeral](https://github.com/martinpi/ephemeral) extensions of Tracery to [Max Kreminski](https://mkremins.github.io)'s C#/Unity port.
 
 ## Installation
 
-You probably shouldn't use this yet! That said, if you *really* want to, you can "install" TracerySharp today by downloading the `Source` directory from this repository and dropping it directly into your Unity project's `Assets` folder.
-
-In the future, I'll be looking into cleaner alternative methods of distributing libraries for use in Unity games.
+Download the `Source` directory from this repository and drop it into your Unity project's `Assets` folder.
 
 ## Usage
 
@@ -56,9 +56,9 @@ Once you've acquired a `Grammar` object, you can use the `Flatten` method to gen
 string expanded = grammar.Flatten("#origin#"); // assuming the grammar has a rule named 'origin'
 ```
 
-TracerySharp is still incomplete, but you should be able to use most of the basic syntax described in the [Tracery tutorial](http://www.crystalcodepalace.com/traceryTut.html).
+EphemeraldUnity is still incomplete, but you should be able to use most of the basic syntax described in the [Tracery tutorial](http://www.crystalcodepalace.com/traceryTut.html).
 
-### Make TracerySharp deterministic
+### Make EphemeraldUnity deterministic
 
 [Much like Tracery itself](https://github.com/galaxykate/tracery/tree/tracery2#making-tracery-deterministic), you can make TracerySharp deterministic by setting `Tracery.Rng` to an instance of `System.Random` [constructed with a specified seed](https://msdn.microsoft.com/en-us/library/ctssatww(v=vs.110).aspx):
 
@@ -67,6 +67,8 @@ Tracery.Rng = new System.Random(42); // replace 42 with whatever seed you want
 ```
 
 ## Credits
+
+[Martin Pichlmair](http://vertical-progress.net) is currently working on extending this port of Tracery.
 
 [Tracery](http://tracery.io/) was originally designed and developed by [Kate Compton](http://www.galaxykate.com/).
 
