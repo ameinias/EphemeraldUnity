@@ -6,7 +6,7 @@ This project adds the [ephemeral](https://github.com/martinpi/ephemeral) extensi
 
 ## Installation
 
-Download the `Source` directory from this repository and drop it into your Unity project's `Assets` folder.
+Download the `Source` directory from this repository and drop it into your Unity project's `Assets` folder. Alternatively you can download the `Sample Project` in this repository and arrive at the same point.
 
 ## Usage
 
@@ -25,7 +25,18 @@ GameObject go = GameObject.Find("foo"); // the GameObject to which you attached 
 Grammar grammar = go.GetComponent<TraceryGrammar>().Grammar;
 ```
 
-#### Method 2: Load from JSON
+#### Method 2: Load from Ephemerald
+
+Add the Ephemerald grammar file containing your serialized grammar to the `Assets/Resources` directory within your Unity project. Then you can access it in your scripts as follows:
+
+```C#
+TextAsset jsonFile = Resources.Load("grammar") as TextAsset; // assuming the file is at Assets/Resources/grammar.json
+Grammar grammar = Grammar.LoadFromCCC(cccFile);
+```
+
+You can also use `Grammar.LoadFromCCC(string cccString)` to load a grammar directly from an Ephemerald string.
+
+#### Method 3: Load from JSON
 
 Add the JSON file containing your serialized grammar to the `Assets/Resources` directory within your Unity project. Then you can access it in your scripts as follows:
 
@@ -36,7 +47,7 @@ Grammar grammar = Grammar.LoadFromJSON(jsonFile);
 
 You can also use `Grammar.LoadFromJSON(string jsonString)` to load a grammar directly from a JSON string.
 
-#### Method 3: Write a script
+#### Method 4: Write a script
 
 In a C# script, you can create a `Grammar` object directly using the public constructor. Then you can programmatically populate it with rules using the `PushRules` method:
 
@@ -68,7 +79,7 @@ Tracery.Rng = new System.Random(42); // replace 42 with whatever seed you want
 
 ## Credits
 
-[Martin Pichlmair](http://vertical-progress.net) is currently working on extending this port of Tracery.
+[Martin Pichlmair](http://vertical-progress.net) is currently working on extending this port of Tracery. He's the author of the highly unpopular and obscure [Ephemerald](https://martinpi.itch.io/ephemerald) editor that allows nicer Tracery editing than fumbling around with JSON.
 
 [Tracery](http://tracery.io/) was originally designed and developed by [Kate Compton](http://www.galaxykate.com/).
 
