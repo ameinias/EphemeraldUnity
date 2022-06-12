@@ -1,0 +1,5 @@
+{
+	"origin": ["this could be a tweet", "this is #alternatives# tweet", "#completely different#"],
+	"alternatives" : ["an example", "a different", "another", "a possible", "a generated", "your next"],
+	"completely different" : ["and now for something completely different", "so long and thanks for all the fish", "or, maybe, #alternatives# badger"]
+}

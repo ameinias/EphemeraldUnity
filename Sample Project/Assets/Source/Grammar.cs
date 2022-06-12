@@ -74,8 +74,8 @@ namespace Tracery
 				}
 			}
 			// last rule might still be in buffer
-			if (rule.Length > 0 && options.Length > 1) // just a precaution
-				grammar.PushRules(rule, options.Split("\n"));
+/*			if (rule.Length > 0 && options.Length > 1) // just a precaution
+				grammar.PushRules(rule, options.Split("\n"));*/
 
 			return grammar;
 		}
